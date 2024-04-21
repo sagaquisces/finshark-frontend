@@ -4,6 +4,10 @@ import { UserProfileToken } from "../Models/User";
 
 let api = '';
 
+console.log(import.meta.env.MODE)
+console.log(import.meta.env.DEV)
+console.log(import.meta.env.PROD)
+
 if(import.meta.env.PROD) {
   api = "https://100.20.92.101:8080/api/"
 } else {
