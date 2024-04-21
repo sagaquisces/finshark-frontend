@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import StockCommentForm from './StockCommentForm/StockCommentForm'
 import { commentGetAPI, commentPostAPI } from '../../Services/CommentService';
 import { toast } from 'react-toastify';
@@ -20,6 +20,7 @@ const StockComment = ({ stockSymbol }: Props) => {
 
   useEffect(() => {
     getComments()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleComment = (e: CommentFormInputs) => {
@@ -39,13 +40,13 @@ const StockComment = ({ stockSymbol }: Props) => {
     setLoading(true)
     commentGetAPI(stockSymbol).then((res) => {
         setLoading(false)
-        setComment(res?.data)
+        setComment(res && res.data ? res.data : null)
       })
   }
   return (
     <div className= "flex flex-col">
       { loading ? <Spinner /> : <StockCommentList comments={comments!} /> }
-      <StockCommentForm symbol={stockSymbol} handleComment={handleComment} />
+      <StockCommentForm handleComment={handleComment} />
     </div>
   )
 }

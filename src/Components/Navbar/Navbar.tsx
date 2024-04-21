@@ -1,11 +1,11 @@
-import React from 'react'
 import logo from './logo.png'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Context/useAuth'
 
 interface Props {}
 
-const Navbar = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Navbar = (_props: Props) => {
   const { isLoggedIn, user, logout } = useAuth()
   return (
     <nav className="relative container mx-auto p-6">

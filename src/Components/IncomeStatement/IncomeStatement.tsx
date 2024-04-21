@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CompanyIncomeStatement } from '../../company';
 import { formatLargeMonetaryNumber, formatRatio } from '../../Helpers/NumberFormatting';
 import { useOutletContext } from 'react-router-dom';
@@ -74,7 +74,8 @@ const config = [
   },
 ];
 
-const IncomeStatement = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const IncomeStatement = (_props: Props) => {
   const ticker = useOutletContext<string>()
   const [incomeStatement, setIncomeStatement] = useState<CompanyIncomeStatement[]>()
   useEffect(() => {

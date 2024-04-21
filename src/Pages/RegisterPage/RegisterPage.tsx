@@ -1,4 +1,3 @@
-import React from 'react'
 import * as Yup from 'yup'
 import { useAuth } from '../../Context/useAuth'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -19,7 +18,8 @@ const validation = Yup.object().shape({
 
 })
 
-const RegisterPage = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const RegisterPage = (_props: Props) => {
   const { registerUser } = useAuth()
   const {
     register, 

@@ -1,9 +1,9 @@
-import React from 'react'
 import hero from './hero.png'
 import { Link } from 'react-router-dom'
 interface Props {}
 
-const Hero = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Hero = (_props: Props) => {
   return (
     <section id="hero">
       <div className="container flex flex-col-reverse mx-auto p-8 lg:flex-row">

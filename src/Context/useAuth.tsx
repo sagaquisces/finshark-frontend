@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { loginAPI, registerAPI } from "../Services/AuthService";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { string } from "yup";
 
 type UserContextType = {
   user: UserProfile | null;
@@ -54,7 +53,8 @@ export const UserProvider = ({ children } : Props) => {
         toast.success("Login Success!")
         navigate("/search")
       }
-    }).catch((e) => toast.warning("Server error occured"))
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    }).catch((_e) => toast.warning("Server error occured"))
   }
 
   const loginUser = async(
@@ -96,4 +96,5 @@ export const UserProvider = ({ children } : Props) => {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => React.useContext(UserContext)

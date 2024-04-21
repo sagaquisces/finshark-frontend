@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CompanyBalanceSheet } from '../../company';
 import { formatLargeMonetaryNumber } from '../../Helpers/NumberFormatting';
 import { useOutletContext } from 'react-router';
@@ -76,7 +76,7 @@ const config = [
   },
 ];
 
-const BalanceSheet = (props: Props) => {
+const BalanceSheet = (_props: Props) => {
   const ticker = useOutletContext<string>()
   const [balanceSheet, setBalanceSheet] = useState<CompanyBalanceSheet>()
   useEffect(() => {

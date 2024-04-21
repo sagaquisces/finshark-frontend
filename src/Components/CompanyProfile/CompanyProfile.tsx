@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CompanyKeyMetrics } from '../../company';
 import { formatLargeNonMonetaryNumber, formatRatio } from '../../Helpers/NumberFormatting';
 import { useOutletContext } from 'react-router-dom';
@@ -6,7 +6,6 @@ import { getKeyMetrics } from '../../api';
 import RatioList from '../RatioList/RatioList';
 import Spinner from '../Spinner/Spinner';
 import StockComment from '../StockComment/StockComment';
-import { string } from 'yup';
 
 interface Props {}
 
@@ -79,7 +78,8 @@ const tableConfig = [
   },
 ];
 
-const CompanyProfile = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const CompanyProfile = (_props: Props) => {
   const ticker = useOutletContext<string>()
   const [companyData, setCompanyData] = useState<CompanyKeyMetrics>()
   useEffect(() => {

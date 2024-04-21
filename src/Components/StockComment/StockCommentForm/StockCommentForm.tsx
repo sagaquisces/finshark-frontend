@@ -1,10 +1,9 @@
-import React from "react";
+import { useEffect } from "react";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 type Props = {
-  symbol: string;
   handleComment: (e: CommentFormInputs) => void;
 };
 
@@ -18,12 +17,24 @@ const validation = Yup.object().shape({
   content: Yup.string().required("Content is required"),
 });
 
-const StockCommentForm = ({ symbol, handleComment }: Props) => {
+const StockCommentForm = ({ handleComment }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState,
+    formState: { errors, isSubmitSuccessful },
+    reset
   } = useForm<CommentFormInputs>({ resolver: yupResolver(validation) });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ 
+        title: "",
+        content: ""
+      })
+    }
+  }, [formState, isSubmitSuccessful, reset])
+
   return (
     <form className="mt-4 ml-4" onSubmit={handleSubmit(handleComment)}>
       <input
@@ -31,6 +42,7 @@ const StockCommentForm = ({ symbol, handleComment }: Props) => {
         id="title"
         className="mb-3 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder="Title"
+        defaultValue={""}
         {...register("title")}
       />
       {errors.title ? <p>{errors.title.message}</p> : ""}
@@ -43,6 +55,7 @@ const StockCommentForm = ({ symbol, handleComment }: Props) => {
           rows={6}
           className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
           placeholder="Write a comment..."
+          defaultValue={""}
           {...register("content")}
         ></textarea>
       </div>

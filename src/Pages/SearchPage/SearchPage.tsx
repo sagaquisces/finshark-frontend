@@ -1,4 +1,4 @@
-import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react'
+import { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react'
 import CardList from '../../Components/CardList/CardList';
 import ListPortfolio from '../../Components/Portfolio/ListPortfolio/ListPortfolio';
 import { searchCompanies } from '../../api';
@@ -10,7 +10,8 @@ import { toast } from 'react-toastify';
 
 interface Props {}
 
-const SearchPage = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const SearchPage = (_props: Props) => {
   const [search, setSearch] = useState<string>('')
   const [portfolioValues, setPortfolioValues] = useState<PortfolioGet[] | null>([])
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
@@ -31,7 +32,8 @@ const SearchPage = (props: Props) => {
         if(res?.data) {
           setPortfolioValues(res?.data)
         }
-      }).catch((e) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      }).catch((_e) => {
         toast.warning("Could not get portfolio.")
       })
   }
@@ -45,7 +47,8 @@ const SearchPage = (props: Props) => {
           toast.success("Stock added to portfolio!")
           getPortfolio()
         }
-      }).catch((e) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      }).catch((_e) => {
         toast.warning("Could not add to portfolio.")
       })
   }

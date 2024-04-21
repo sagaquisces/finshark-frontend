@@ -27,7 +27,9 @@ export const getCompanyProfile = async (query: string) => {
   try {
     const data = await axios.get<CompanyProfile>(
       `https://financialmodelingprep.com/api/v3/profile/${query}?apikey=${import.meta.env.VITE_API_KEY}`)
+    console.log("from getCompanyProfile: ", data.data)
     return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error: any) {
     console.log("error message: ", error.message)
   }
@@ -38,6 +40,7 @@ export const getKeyMetrics = async (query: string) => {
     const data = await axios.get<CompanyKeyMetrics[]>(
       `https://financialmodelingprep.com/api/v3/key-metrics-ttm/${query}?apikey=${import.meta.env.VITE_API_KEY}`)
     return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error: any) {
     console.log("error message: ", error.message)
   }
@@ -48,6 +51,7 @@ export const getIncomeStatement = async (query: string) => {
     const data = await axios.get<CompanyIncomeStatement[]>(
       `https://financialmodelingprep.com/api/v3/income-statement/${query}?apikey=${import.meta.env.VITE_API_KEY}`)
     return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error: any) {
     console.log("error message: ", error.message)
   }
@@ -58,6 +62,7 @@ export const getBalanceSheet = async (query: string) => {
     const data = await axios.get<CompanyBalanceSheet[]>(
       `https://financialmodelingprep.com/api/v3/balance-sheet-statement/${query}?limit=40&apikey=${import.meta.env.VITE_API_KEY}`)
     return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error: any) {
     console.log("error message: ", error.message)
   }
@@ -68,6 +73,7 @@ export const getCashFlowStatement = async (query: string) => {
     const data = await axios.get<CompanyCashFlow[]>(
       `https://financialmodelingprep.com/api/v3/cash-flow-statement/${query}?limit=40&apikey=${import.meta.env.VITE_API_KEY}`)
     return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error: any) {
     console.log("error message: ", error.message)
   }

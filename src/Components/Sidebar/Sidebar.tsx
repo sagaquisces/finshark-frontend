@@ -1,9 +1,9 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
 interface Props {}
 
-const Sidebar = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Sidebar = (_props: Props) => {
   return (
     <nav className="block py-4 px-6 top-0 bottom-0 w-64 bg-white shadow-xl left-0 absolute flex-row flex-nowrap md:z-10 z-9999 transition-all duration-300 ease-in-out transform md:translate-x-0 -translate-x-full">
 

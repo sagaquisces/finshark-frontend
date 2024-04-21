@@ -1,4 +1,3 @@
-import React from "react";
 import { CommentGet } from "../../Models/Comment";
 
 type Props = {

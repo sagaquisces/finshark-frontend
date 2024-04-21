@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getCompanyProfile } from '../../api'
 import { CompanyProfile } from '../../company'
@@ -9,13 +9,16 @@ import Spinner from '../../Components/Spinner/Spinner'
 
 interface Props {}
 
-const CompanyPage = (props: Props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const CompanyPage = (_props: Props) => {
   const { ticker } = useParams()
   const [company, setCompany] = useState<CompanyProfile>()
 
   useEffect(() => {
     const getProfileInit = async () => {
       const result = await getCompanyProfile(ticker!)
+      const obj = Object.assign({}, result?.data);
+      console.log("obj ", obj[0])
       setCompany(result?.data[0])
     }
     getProfileInit()
