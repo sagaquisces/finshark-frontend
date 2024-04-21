@@ -5,7 +5,7 @@ import { UserProfileToken } from "../Models/User";
 let api = '';
 
 if(import.meta.env.PROD) {
-  api = "http://localhost:8080/api/"
+  api = "https://100.20.92.101:8080/api/"
 } else {
   api = "http://localhost:5094/api/"
 }
