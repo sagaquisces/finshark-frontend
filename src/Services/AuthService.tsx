@@ -9,7 +9,7 @@ console.log(import.meta.env.DEV)
 console.log(import.meta.env.PROD)
 
 if(import.meta.env.PROD) {
-  api = "http://finshark-api.onrender.com:8080/api/"
+  api = "https://finshark-api.onrender.com:8080/api/"
 } else {
   api = "http://localhost:5094/api/"
 }
